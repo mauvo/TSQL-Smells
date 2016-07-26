@@ -95,7 +95,7 @@ namespace TSQLSmellsSSDTTest
             CodeAnalysisResult result = service.Analyze(_Model);
             SerializeResultOutput(result);
 
-            CollectionAssert.AreEquivalent(_FoundProblems, _ExpectedProblems);
+            CollectionAssert.AreEquivalent(_ExpectedProblems, _FoundProblems);
         }
 
         public void RunTest()
