@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TSQLSmellSCA {
+namespace TSQLSmellProcessor {
     using System;
     
     

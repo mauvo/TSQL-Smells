@@ -1,3 +1,6 @@
+SELECT * FROM MYTest
+go
+
 
 CREATE PROCEDURE dbo.ConvertDateSingleCond
 AS

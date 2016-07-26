@@ -1,4 +1,4 @@
-﻿namespace TSQLSmellSCA
+﻿namespace TSQLSmellProcessor
 {
     public class VarAssignment
     {

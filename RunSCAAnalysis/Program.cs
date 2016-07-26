@@ -8,7 +8,13 @@ using System.Threading.Tasks;
 using Microsoft.SqlServer.Dac;
 using Microsoft.SqlServer.Dac.CodeAnalysis;
 using Microsoft.SqlServer.Dac.Model;
+
+using Microsoft.SqlServer.TransactSql;
+using Microsoft.SqlServer.TransactSql.ScriptDom;
+
 using System.IO;
+
+using TSQLSmellProcessor;
 
 namespace RunSCAAnalysis
 {
@@ -55,6 +61,23 @@ namespace RunSCAAnalysis
             string OutFile="";
             string DacPac = "";
 
+
+            //TSql130Parser p1 = new Microsoft.SqlServer.TransactSql.ScriptDom.TSql130Parser(true);
+
+            //MemoryStream stream = new MemoryStream();
+            //StreamWriter writer = new StreamWriter(stream);
+            //writer.Write("Select * from BLAH");
+            //writer.Flush();
+            //stream.Position = 0;
+            //StreamReader r = new StreamReader(stream);
+
+            //IList<ParseError> parseErrors;
+
+            //TSql110Parser p = new TSql110Parser(true);
+            //TSqlFragment frg = p.Parse(r, out parseErrors);
+
+            doSmellsOnFile(@"C:\Users\vcirt\Source\Repos\TSQL-Smells\TSQLSmellsTest\CreateViewOrderBy.sql");
+
             for (int i =0;i<args.Length;i+=2)
             {
                 switch (args[i]){
@@ -71,6 +94,12 @@ namespace RunSCAAnalysis
                         DacPac = args[i + 1];
                         break;
 
+                    case "-script":
+                        {
+                            StreamReader sr = new StreamReader(args[i + 1]);
+                                
+                        }
+                        break;
 
                 }
 
@@ -81,6 +110,21 @@ namespace RunSCAAnalysis
                 s.RunAnalysisAgainstDatabase(Server, Database, OutFile);
             else
                 s.RunDacpacAnalysis(DacPac, OutFile);
+        }
+
+        static void doSmellsOnFile(string FileName)
+        {
+            IList<ParseError> parseErrors;
+            StreamReader sr = new StreamReader(FileName);
+            TSql110Parser p = new TSql110Parser(true);
+            TSqlFragment frg = p.Parse(sr, out parseErrors);
+
+            Smells sml = new Smells();
+            sml.SetIRule(-1);
+            sml.ProcessTsqlFragment(frg);
+
+            
+
         }
     }
 }

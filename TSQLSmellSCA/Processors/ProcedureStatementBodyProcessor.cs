@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.SqlServer.TransactSql.ScriptDom;
 
-namespace TSQLSmellSCA
+namespace TSQLSmellProcessor
 {
     public class ProcedureStatementBodyProcessor
     {

@@ -23,7 +23,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Resources;
 
-namespace TSQLSmellSCA
+namespace TSQLSmellProcessor
 {
     /// <summary>
     /// This is an example of a localized export attribute. These can be very useful in the case where

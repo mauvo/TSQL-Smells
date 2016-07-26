@@ -2,20 +2,34 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Resources;
-using Microsoft.SqlServer.Dac;
-using Microsoft.SqlServer.Dac.CodeAnalysis;
-using Microsoft.SqlServer.Dac.Model;
+//using Microsoft.SqlServer.Dac;
+//using Microsoft.SqlServer.Dac.CodeAnalysis;
+//using Microsoft.SqlServer.Dac.Model;
 using Microsoft.SqlServer.TransactSql.ScriptDom;
 
-namespace TSQLSmellSCA
+namespace TSQLSmellProcessor
 {
+    public class Feedback
+    {
+        public int _ProblemNo;
+        public TSqlFragment frg;
+
+        public Feedback(int _ProblemNo,TSqlFragment frg)
+        {
+            this._ProblemNo = _ProblemNo;
+            this.frg = frg;
+
+        }
+
+    }
     public class Smells
     {
+        public List<Feedback> _FeedbackList = new List<Feedback>();
         private readonly List<VarAssignment> _assignmentList = new List<VarAssignment>();
 
         private int _iRule;
-        private TSqlObject _modelElement;
-        private List<SqlRuleProblem> _problems;
+      //  private TSqlObject _modelElement;
+      //  private List<SqlRuleProblem> _problems;
         private readonly SelectStatementProcessor _selectStatementProcessor;
         private readonly InsertProcessor _insertProcessor;
         private readonly ExecutableEntityProcessor _executableEntityProcessor;
@@ -105,18 +119,24 @@ namespace TSQLSmellSCA
             get { return _procedureStatementBodyProcessor; }
         }
 
+        public ResourceManager GetResourceManager()
+        {
+            return Resources.ResourceManager;
+        }
 
         public void SendFeedBack(int errorNum, TSqlFragment errorFrg)
         {
-            if (errorNum != _iRule) return;
+            if (_iRule !=-1 && errorNum != _iRule) return;
 
 
             ResourceManager rm = Resources.ResourceManager;
+            //  TODO 
+            //           string lookup = "TSQLSmell_RuleName" + errorNum.ToString("D2");
+            //           string Out = rm.GetString(lookup);
 
-            string lookup = "TSQLSmell_RuleName" + errorNum.ToString("D2");
-            string Out = rm.GetString(lookup);
-
-            _problems.Add(new SqlRuleProblem(Out, _modelElement, errorFrg));
+            //           _problems.Add(new SqlRuleProblem(Out, _modelElement, errorFrg));
+            Feedback fb = new Feedback(errorNum, errorFrg);
+            this._FeedbackList.Add(fb);
         }
 
         private void SendFeedBack(int errorNum, TSqlParserToken errorToken)
@@ -301,9 +321,17 @@ namespace TSQLSmellSCA
             }
         }
 
+        public void SetIRule(int r)
+        {
+            _iRule = r;
 
+        }
+
+       /* TODO
         public List<SqlRuleProblem> ProcessObject(TSqlObject sqlObject, int iRule)
         {
+
+            
             var problems = new List<SqlRuleProblem>();
             _problems = problems;
             _modelElement = sqlObject;
@@ -323,6 +351,9 @@ namespace TSQLSmellSCA
             }
 
             return problems;
+            
+
         }
+    */
     }
 }

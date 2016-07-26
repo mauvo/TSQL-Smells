@@ -1,15 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSQLSmellSCA", "TSQLSmellSCA\TSQLSmellSCA.csproj", "{0E07F4CD-6CDB-4B3A-B8D5-F88B3B26E58C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSQLSmellsProcessor", "TSQLSmellSCA\TSQLSmellsProcessor.csproj", "{0E07F4CD-6CDB-4B3A-B8D5-F88B3B26E58C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunSCAAnalysis", "RunSCAAnalysis\RunSCAAnalysis.csproj", "{B9DF2148-FA9E-4AF3-B5AF-B6C6CF8AC2E1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSQLSmellsSSDTTest", "TSQLSmellsSSDTTest\TSQLSmellsSSDTTest.csproj", "{3F96C1BE-A925-4DA8-A8F6-24575E677B48}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DBSchema", "DBSchema\DBSchema.sqlproj", "{3F797371-3F82-4739-BA86-0C4D155DEA02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSQLSmellsSCA", "TSQLSmellsSCA\TSQLSmellsSCA.csproj", "{04A30C28-F115-4F78-A2E3-8C8040E14663}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunTSQLSmells", "RunTSQLSmells\RunTSQLSmells.csproj", "{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +79,38 @@ Global
 		{3F797371-3F82-4739-BA86-0C4D155DEA02}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
 		{3F797371-3F82-4739-BA86-0C4D155DEA02}.Release|x64.ActiveCfg = Release|Any CPU
 		{3F797371-3F82-4739-BA86-0C4D155DEA02}.Release|x86.ActiveCfg = Release|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Debug|x64.Build.0 = Debug|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Debug|x86.Build.0 = Debug|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Release|x64.ActiveCfg = Release|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Release|x64.Build.0 = Release|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Release|x86.ActiveCfg = Release|Any CPU
+		{04A30C28-F115-4F78-A2E3-8C8040E14663}.Release|x86.Build.0 = Release|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Debug|x64.Build.0 = Debug|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Debug|x86.Build.0 = Debug|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Release|x64.ActiveCfg = Release|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Release|x64.Build.0 = Release|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Release|x86.ActiveCfg = Release|Any CPU
+		{F8ED6579-31C1-4187-AD73-BE24F0E18CF3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,7 +9,7 @@ using Microsoft.SqlServer.TransactSql;
 
 using System.Diagnostics;
 
-namespace TSQLSmellSCA
+namespace TSQLSmellProcessor
 {
 
     public class TSQLSmellWorker{
@@ -74,7 +74,7 @@ namespace TSQLSmellSCA
             Smells smellprocess = new Smells();
 
             int iRule = int.Parse(_ruleID.Substring(_ruleID.Length - 3));
-            return (smellprocess.ProcessObject(SqlObject, iRule));
+            return null;  //(smellprocess.ProcessObject(SqlObject, iRule));
 
         }
 

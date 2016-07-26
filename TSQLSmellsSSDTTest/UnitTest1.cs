@@ -108,6 +108,46 @@ namespace TSQLSmellsSSDTTest
 
 
     [TestClass]
+    public class testHasLoaded : TestModel
+    {
+
+        public testHasLoaded()
+        {
+            
+
+        }
+
+        [TestMethod]
+        public void HasLoaded()
+        {
+            int SMLRuleCount = 0;
+            var _Model = new TSqlModel(SqlServerVersion.Sql130, null);
+            CodeAnalysisService service = new CodeAnalysisServiceFactory().CreateAnalysisService(_Model.Version);
+            foreach(var rule in service.GetRules())
+            {
+                if (rule.RuleId.StartsWith("Smells"))
+                {
+                    SMLRuleCount++;
+
+                }
+
+
+
+            }
+            if (SMLRuleCount == 0)
+            {
+                /* No SML rules loaded */
+                Assert.Fail();
+
+            }
+            
+
+        }
+
+    }
+
+
+    [TestClass]
     public class testConvertDate : TestModel
     {
 
