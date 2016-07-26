@@ -76,7 +76,7 @@ namespace RunSCAAnalysis
             //TSql110Parser p = new TSql110Parser(true);
             //TSqlFragment frg = p.Parse(r, out parseErrors);
 
-            doSmellsOnFile(@"C:\Users\vcirt\Source\Repos\TSQL-Smells\TSQLSmellsTest\CreateViewOrderBy.sql");
+            //doSmellsOnFile(@"C:\Users\vcirt\Source\Repos\TSQL-Smells\TSQLSmellsTest\CreateViewOrderBy.sql");
 
             for (int i =0;i<args.Length;i+=2)
             {
