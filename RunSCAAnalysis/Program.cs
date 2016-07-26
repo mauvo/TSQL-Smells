@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data.SqlClient;
 
 using Microsoft.SqlServer.Dac;
 using Microsoft.SqlServer.Dac.CodeAnalysis;
@@ -42,7 +42,12 @@ namespace RunSCAAnalysis
         {
             string extractedPackagePath = System.IO.Path.GetTempPath()+System.IO.Path.GetRandomFileName() + ".dacpac";
 
-            DacServices services = new DacServices("Server="+Server+";Integrated Security=true;");
+            var builder = new SqlConnectionStringBuilder();
+            builder.InitialCatalog = Database;
+            builder.DataSource = Server;
+            builder.IntegratedSecurity = true;
+
+            DacServices services = new DacServices(builder.ConnectionString);
             services.Extract(extractedPackagePath, Database, "AppName", new Version(1, 0));
 
             
